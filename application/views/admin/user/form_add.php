@@ -1,15 +1,14 @@
-<section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Add User</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+      <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Add User </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">User</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Add User</li>
+                </ol>
+              </nav>
+            </div>
 
               <?php if ($this->session->flashdata('success')): ?>
 			    <div class="alert alert-success">
@@ -17,54 +16,39 @@
 			    </div>               
 			  <?php endif;?>
 
-              <form id="quickForm" action="<?= base_url('admin/user/add') ?>" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="email">Username</label>
-                    <input type="username" name="username" class="form-control" id="username" placeholder="Enter username">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Full Name</label>
-                    <input type="name" name="full_name" class="form-control" id="full_name" placeholder="Enter full name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Role</label>
-                    <select class="form-control select2" id="inputGroupSelect02" name="role">
-						<option selected="selected">Choose 1</option>
-						<option value="admin">Admin</option>
-						<option value="staff">Staff</option>
-                    </select> 
-                  </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Form Add User</h4>
+                    <form class="forms-sample" method="POST" action="<?= base_url('admin/user/add') ?>">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Username" name="username">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Full Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="full_name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Role</label>
+                        <select class="form-control" id="exampleSelectGender" name="role">
+                          <?php
+                              foreach ($role as $r): ?>
+                                <option value=" <?php echo $r->id_role; ?>"> <?php echo $r->name_role; ?> </option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
                   </div>
                 </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
-
-          </div>
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+              </div>

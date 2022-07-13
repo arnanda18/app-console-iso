@@ -1,10 +1,15 @@
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('asset/template/admin')?>/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('asset/template/admin')?>/dist/css/adminlte.min.css">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Console</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="<?= base_url('asset/template/admin')?>/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="<?= base_url('asset/template/admin')?>/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="<?= base_url('asset/template/admin')?>/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="<?= base_url('asset/template/admin')?>/assets/images/favicon.ico" />

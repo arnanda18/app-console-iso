@@ -1,69 +1,57 @@
-<section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Update Data User</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-	             <?php if ($this->session->flashdata('success')): ?>
-	      				<div class="alert alert-success">
-	          			<?php echo $this->session->flashdata('success');?>
-	      				</div> 
-	      		<?php endif;?>
-              <form id="quickForm" action="<?= base_url('admin/user/updateData') ?>" method="POST">
-                <div class="card-body">
-                	<input type="hidden" name="id_user" value="<?php echo $datauser->id_user;?>">
-                  <div class="form-group">
-                    <label for="email">Username</label>
-                    <input type="username" name="username" class="form-control" id="username" placeholder="Enter username" value="<?php echo $datauser->username;?>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Full Name</label>
-                    <input type="name" name="full_name" class="form-control" id="full_name" placeholder="Enter full name" value="<?php echo $datauser->full_name;?>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" value="<?php echo $datauser->email;?>">
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?php echo $datauser->password;?>">
-                  </div>
-                  <div class="form-group">
-                    <label for="role">Role</label>
-                    	
-                    <select class="form-control select2" id="inputGroupSelect02" name="role" id="role">
-						<option value="admin" <?php  if(isset($datauser->role)&&$datauser->role=='admin'){echo 'selected'; }?>>Admin</option>
-						<option value="staff" <?php  if(isset($datauser->role)&&$datauser->role=='staff'){echo 'selected'; }?>>Staff</option>
-                    </select> 
-                  </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Update</button>
-                </div>
-              </form>
+      <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Update User </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">User</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Update User</li>
+                </ol>
+              </nav>
             </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
 
-          </div>
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+              <?php if ($this->session->flashdata('success')): ?>
+          <div class="alert alert-success">
+            <?php echo $this->session->flashdata('success');?>. <u><a href="<?php echo base_url('admin/user');?>" style="color: #155724">Lihat data User</a></u>
+          </div>               
+        <?php endif;?>
+
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Form Update User</h4>
+                    <form class="forms-sample" method="POST" action="<?= base_url('admin/user/updateData'); ?>">
+
+                      <input type="hidden" name="id_user" value="<?php echo $datauser->id_user;?>">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="<?php echo $datauser->username;?>" name="username">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Full Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="<?php echo $datauser->full_name;?>" name="full_name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" value="<?php echo $datauser->email;?>" name="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" value="<?php echo $datauser->password;?>" name="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Role</label>
+                        <select class="form-control" id="exampleSelectGender" name="role">
+                          <?php
+                              foreach ($role as $r): ?>
+                                  <option value=" <?php echo $r->id_role; ?>" <?php if($datauser->id_role == $r->id_role) echo " selected";  ?>> <?php echo $r->name_role; ?> </option>
+         
+                          <?php  endforeach; ?>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>

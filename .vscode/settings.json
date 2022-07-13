@@ -1,0 +1,5 @@
+{
+    "php-intellisense.trace.server": "messages",
+    "php.validate.executablePath": "/usr/bin/php",
+    "php.executablePath": "/usr/bin/php"
+}
